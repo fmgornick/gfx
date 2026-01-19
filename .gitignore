@@ -1,3 +1,4 @@
+*.dSYM
 *.dylib
 *.metallib
 gfx

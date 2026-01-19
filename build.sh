@@ -9,10 +9,10 @@ frameworks=(
 )
 
 # compile shaders
-xcrun metal shaders.metal -o shaders.metallib
+# xcrun metal shaders.metal -o shaders.metallib
 
 # compile obj-c code into dynamic library
-clang -fPIC -shared metal.m -o libmetal.dylib ${frameworks[@]}
+clang -g -fPIC -shared metal.m -o libmetal.dylib ${frameworks[@]}
 
 # compile c code into binary linking obj-c part
-clang -L. -Wl,-rpath,. main.c -o gfx -lmetal
+clang -g -L. -Wl,-rpath,. main.m -o gfx -lmetal -framework AppKit
